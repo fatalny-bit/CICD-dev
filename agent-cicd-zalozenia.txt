@@ -24,3 +24,23 @@ katalog, w którym będzie stał projekt, np. /srv/baza-ksiazek
 plik docker-compose.yml w tym katalogu
 skrypt deployujący, np. /usr/local/bin/deploy.sh
 Agent musi wiedzieć, gdzie ma wykonać docker compose pull i docker compose up -d.
+
+
+Rejestr obrazów Dockera
+GitHub Actions musi gdzieś wypchnąć zbudowany obraz.
+Opcje:
+Docker Hub
+GitHub Container Registry (GHCR)
+prywatny registry na Twoim serwerze
+Potrzebne dane:
+adres registry
+nazwa obrazu (np. ghcr.io/fatalny-bit/baza-ksiazek:latest)
+token dostępu (w GitHub Secrets)
+
+Musisz określić:
+na jaki branch reagujemy (np. main lub dev)
+jak budować obraz Dockera
+jak wypychać obraz do registry
+jak po SSH wywołać skrypt deployujący
+To jest serce agenta CI/CD.
+
